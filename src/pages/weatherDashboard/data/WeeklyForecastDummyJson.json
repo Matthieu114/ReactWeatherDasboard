@@ -1,0 +1,81 @@
+{
+  "weeklyForecast": [
+    {
+      "id": 1,
+      "day": "Monday",
+      "date": "2024-09-16",
+      "condition": "Sunny",
+      "temperature": {
+        "min": 20,
+        "max": 30
+      },
+      "icon": "☀️"
+    },
+    {
+      "id": 2,
+      "day": "Tuesday",
+      "date": "2024-09-17",
+      "condition": "Partly Cloudy",
+      "temperature": {
+        "min": 22,
+        "max": 28
+      },
+      "icon": "⛅"
+    },
+    {
+      "id": 3,
+      "day": "Wednesday",
+      "date": "2024-09-18",
+      "condition": "Cloudy",
+      "temperature": {
+        "min": 19,
+        "max": 26
+      },
+      "icon": "🌥️"
+    },
+    {
+      "id": 4,
+      "day": "Thursday",
+      "date": "2024-09-19",
+      "condition": "Rainy",
+      "temperature": {
+        "min": 18,
+        "max": 25
+      },
+      "icon": "🌧️"
+    },
+    {
+      "id": 5,
+      "day": "Friday",
+      "date": "2024-09-20",
+      "condition": "Thunderstorms",
+      "temperature": {
+        "min": 21,
+        "max": 27
+      },
+      "icon": "⛈️"
+    },
+    {
+      "id": 6,
+      "day": "Saturday",
+      "date": "2024-09-21",
+      "condition": "Sunny",
+      "temperature": {
+        "min": 23,
+        "max": 32
+      },
+      "icon": "☀️"
+    },
+    {
+      "id": 7,
+      "day": "Sunday",
+      "date": "2024-09-22",
+      "condition": "Windy",
+      "temperature": {
+        "min": 20,
+        "max": 29
+      },
+      "icon": "🌬️"
+    }
+  ]
+}
