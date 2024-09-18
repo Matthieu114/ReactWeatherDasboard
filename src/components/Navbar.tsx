@@ -14,7 +14,7 @@ const Navbar = () => {
       <ul>
         {navigationItems.map((item) => {
           return (
-            <li className='text-center mb-4'>
+            <li className='text-center mb-4' key={item.id}>
               <Link to={item.link}>
                 <div className='mb-[5px]'>{item.icon}</div>
                 <p>{item.label}</p>
