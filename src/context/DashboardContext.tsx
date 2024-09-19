@@ -1,34 +1,53 @@
 import { createContext, useState, useEffect } from 'react';
 import { fetchWeatherApi } from 'openmeteo';
-import getGeolocation, { GeolocationDataType } from '../utils/geolocation';
+import { GeolocationDataType } from '../types/interfaces';
+import weatherHelpers from '../utils/weatherHelpers';
 
 export const WeatherContext = createContext(null);
 const WEATHER_API_URL = 'https://api.open-meteo.com/v1/forecast';
 
 function WeatherDashboardProvider() {
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState<any | null>(null);
   // const [location, setLocation] = useState();
 
   async function fetchWeatherData(location: object) {
     const params = {
       ...location,
-      current: ['temperature_2m', 'precipitation', 'weather_code']
+      current: ['temperature_2m', 'apparent_temperature', 'is_day', 'precipitation', 'rain', 'weather_code'],
+      hourly: ['temperature_2m', 'apparent_temperature', 'precipitation_probability', 'precipitation', 'rain', 'weather_code'],
+      daily: [
+        'weather_code',
+        'temperature_2m_max',
+        'temperature_2m_min',
+        'apparent_temperature_max',
+        'apparent_temperature_min',
+        'uv_index_max',
+        'precipitation_sum',
+        'rain_sum',
+        'precipitation_probability_max',
+        'wind_speed_10m_max',
+        'wind_gusts_10m_max'
+      ]
     };
     try {
       const responses = await fetchWeatherApi(WEATHER_API_URL, params);
       const response = responses[0];
-      console.log(responses);
-      const json = { data: response };
-      const jsonString = JSON.stringify(json);
-      console.log(jsonString);
-      //   setWeatherData(response);
+
+      const responseWeatherData = weatherHelpers.getFormattedWeatherDataResponse(response);
+
+      setWeatherData(responseWeatherData);
     } catch (error) {
       console.error('couldnt fetch api data ' + error);
     }
   }
 
   useEffect(() => {
-    getGeolocation()
+    console.log(weatherData);
+  }, [weatherData]);
+
+  useEffect(() => {
+    weatherHelpers
+      .getGeolocation()
       .then((data: GeolocationDataType) => {
         const location = {
           latitude: data.latitude,

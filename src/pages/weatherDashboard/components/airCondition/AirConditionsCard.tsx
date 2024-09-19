@@ -1,10 +1,5 @@
 import React from 'react';
-
-interface AirConditionsCardsProps {
-  icon: string;
-  text: string;
-  value: string;
-}
+import { AirConditionsCardsProps } from '../../../../types/interfaces';
 
 function AirConditionsCard({ icon, text, value }: AirConditionsCardsProps) {
   return (

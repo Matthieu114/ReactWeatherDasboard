@@ -1,8 +1,4 @@
-interface DailyForecastCardProps {
-  time: string;
-  icon: string;
-  temp: number;
-}
+import { DailyForecastCardProps } from '../../../../types/interfaces';
 
 function DailyForecastCard({ time, icon, temp }: DailyForecastCardProps) {
   return (

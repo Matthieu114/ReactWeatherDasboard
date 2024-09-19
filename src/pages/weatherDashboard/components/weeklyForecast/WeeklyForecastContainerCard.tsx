@@ -1,12 +1,5 @@
 import React from 'react';
-
-interface ForecastContainerCardProps {
-  day: string;
-  condition: string;
-  minTemp: number;
-  maxTemp: number;
-  icon: string; // This can also be a type like ReactNode if you decide to use SVGs or components instead of strings
-}
+import { ForecastContainerCardProps } from '../../../../types/interfaces';
 
 function ForecastContainerCard({ day, icon, condition, minTemp, maxTemp }: ForecastContainerCardProps) {
   return (
